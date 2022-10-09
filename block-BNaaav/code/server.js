@@ -21,6 +21,8 @@ function handleRequest(req, res) {
         fs.createReadStream(dir + "/destination.html").pipe(res);
     } else if (req.method === "GET" && pathname === "/contact") {
         fs.createReadStream(dir + "/contact.html").pipe(res);
+    }else if (req.method === "GET" && pathname === "/gallery") {
+        fs.createReadStream(dir + "/gallery.html").pipe(res);
     }
     //CSS
     else if (req.method === "GET" && pathname.split(".").pop() === "css") {
