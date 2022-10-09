@@ -9,7 +9,7 @@ function handleRequest(req, res) {
     let pathname = parsedURl.pathname;
     let dir = __dirname.split("assets")[0];
     // console.log(dir);
-    //Web Pages
+    //Page
     if (req.method === "GET" && pathname === "/") {
         // res.end(dir);
 
@@ -32,7 +32,7 @@ function handleRequest(req, res) {
             res.end(content);
         });
     }
-    //JS
+    //Js
     else if (pathname.split(".").pop() === "js") {
         res.setHeader("Content-Type", "text/js");
         fs.readFile(dir + req.url, (err, content) => {
@@ -40,7 +40,7 @@ function handleRequest(req, res) {
             res.end(content);
         });
     }
-    //Images
+    //Images Check
     else if (
         req.method === "GET" &&
         (pathname.split(".").pop().toLowerCase() === "jpg" ||
@@ -56,7 +56,7 @@ function handleRequest(req, res) {
             res.end(content);
         });
     }
-    //Error
+    //Error 
     else {
         res.writeHead(404, { "Content-Type": "text/html" });
         res.end("<h2>Page not found</h2>");
